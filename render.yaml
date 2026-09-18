@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: gridwise-llm
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: PORT
+        value: 8080
