@@ -1,7 +1,3 @@
-// Flat, nullable-field internal schema used for OpenAI Structured Outputs.
-// Deliberately avoids a discriminated union over structured_adjustment shapes
-// (see docs/06-DECISIONS-LOG.md) — the guardrail layer reshapes this into the
-// exact per-directive-type response shape.
 export const directiveInterpretationSchema = {
   type: "object",
   properties: {
