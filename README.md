@@ -113,7 +113,12 @@ Digest: `sha256:d361a77dd361a8bb5e481792cfe423a541ce78934e9404d1572f854d0be6990b
 
 Deployed on **Render** as a Node web service (see `render.yaml` for the Blueprint: build command `npm ci --omit=dev`, start command `node src/server.js`, health check path `/health`). `OPENAI_API_KEY` is set via Render's environment variable dashboard, never committed.
 
-Public endpoint: _fill in the live Render URL here before submitting_.
+**Public endpoint**: https://teammahalabiagrid.onrender.com
+
+- `GET https://teammahalabiagrid.onrender.com/health` → `{"status":"ok"}`
+- `POST https://teammahalabiagrid.onrender.com/optimize-energy`
+
+Verified externally: all 10 public sample cases pass against this live URL, malformed-JSON requests return a clean `400`, and observed latency is ~2.5–3.2s per request (LLM call + guardrails + LP solve).
 
 ## Dependencies
 
